@@ -46,8 +46,8 @@ function askUser() {
   if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
       echo no
-	  echo " ${GREEN}Cancelled... OK. When you decide clean ${DEF} "
-	  echo " ${GREEN}your Mac from PA again - come back and RUN ME again${DEF} "
+	  echo " ${GREEN}Cancelled... OK. When you'll decide clean ${DEF} "
+	  echo " ${GREEN}your Mac from PA later - come back and RUN ME again${DEF} "
 	  echo " ${RED}---------BYE-BYE-------${DEF} "
       exit 1
     else
