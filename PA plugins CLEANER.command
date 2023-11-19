@@ -25,14 +25,14 @@ rmfile () {
   if [ -d "$1" ]
   then
   sudo rm -rf "$1"
-  echo "$1 - ${GREEN}был удален!${DEF}"
+  echo "$1 - ${GREEN}was removed!${DEF}"
   else
-  echo "$1 - ${RED}не установлен${DEF}"
+  echo "$1 - ${RED}not installed${DEF}"
   fi
 }
 
 removeAll () {
-echo "${BLUE}ебашим ${1}${DEF}"
+echo "${BLUE}delete ${1}${DEF}"
 rmfile "$AU/${1}.component"
 rmfile "$AAX/${1}.aaxplugin"
 # rmfile "$VST/${1}.vst"
@@ -46,9 +46,9 @@ function askUser() {
   if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
       echo no
-	  echo " ${GREEN}Ты передумал? Ну ладно, как соберешься снова почистить${DEF} "
-	  echo " ${GREEN}свой мак от плагинов PA - возвращайся и запусти меня снова!)${DEF} "
-	  echo " ${RED}---------ПОКА-ПОКА-------${DEF} "
+	  echo " ${GREEN}Cancelled... OK. When you decide clean ${DEF} "
+	  echo " ${GREEN}your Mac from PA again - come back and RUN ME again${DEF} "
+	  echo " ${RED}---------BYE-BYE-------${DEF} "
       exit 1
     else
       echo yes
@@ -60,36 +60,35 @@ function askUser() {
 #############################   MAIN SCRIPT  ##################################
 ###############################################################################
 clear
-echo "версия скрипта 0.1"
-echo " ПРИВЕТ "
-echo " я собираюсь очистить этот комп "
-echo " от PA плагинов, которые тебя уже заебали, "
-echo " и которые заслуживают быть уничтоженными нах )"
+echo "script version 0.1"
+echo " ===HI=== "
+echo " I gonna clean "
+echo " Your mac from PA who have already fucked you up, "
+echo " And who deserve to be destroyed )"
 echo ""
-echo " ${RED}ВНИМАНИЕ${DEF} "
-echo " ${RED}СКРИПТ ЕБАНЁТ ВСЕ PLUGIN ALLIANCE ПЛАГИ${DEF} "
-echo "${RED} НАХУЙ и НАВСЕГДА${DEF} "
-echo
-askUser " ПРОДОЛЖИТЬ(y/n)?"
-echo "Ну тогда погнали..."
+echo " ${RED}ATTENSION${DEF} "
+echo " ${RED}SCRIPT WILL DESTROY ALL PLUGINA ALLIANCE PLUGINS NOW${DEF} "
+echo ""
+askUser " CONTINUE(y/n)?"
+echo "Lets go..."
 
 
 sudo killall PA-InstallationManager
 #sudo launchctl unload -w "/Library/LaunchDaemons/com.plugin-alliance.pa-installationhelper.plist"
-echo "${BLUE}ебашим хелперы PA Installation Manager ${1}${DEF}"
+echo "${BLUE}delete PA Installation Manager helpers ${1}${DEF}"
 sudo rm -rf "/Library/LaunchDaemons/com.plugin-alliance.pa-installationhelper.plist"
 sudo rm -rf "/Library/PrivilegedHelperTools/com.plugin-alliance.pa-installationhelper"
 echo ""
-echo "${BLUE}ебашим папку Plugin Alliance в VST ${1}${DEF}"
+echo "${BLUE}deleting Plugin Alliance directory in VST ${1}${DEF}"
 sudo rm -rf "/Library/Audio/Plug-Ins/VST/Plugin Alliance"
 echo ""
-echo "${BLUE}ебашим папку Plugin Alliance в Applications ${1}${DEF}"
+echo "${BLUE}deleting Plugin Alliance directory in Applications ${1}${DEF}"
 sudo rm -rf "/Applications/Plugin Alliance"
 echo ""
-echo "${BLUE}ебашим папку Plugin Alliance в system Library ${1}${DEF}"
+echo "${BLUE}deleting Plugin Alliance directory in systemwide Library ${1}${DEF}"
 sudo rm -rf "/Library/Application Support/Plugin Alliance"
 echo ""
-echo "${BLUE}ебашим папку Plugin Alliance в user Library ${1}${DEF}"
+echo "${BLUE}deleting Plugin Alliance directory in User Library ${1}${DEF}"
 sudo rm -rf "~/Library/Application Support/Plugin Alliance"
 sudo rm -rf "~/Library/Application Support/Plugin Alliance Installation Manager"
 sudo rm -rf "~/Library/Saved Application State/com.plugin-alliance.plugins.PAInstallationManager.savedState"
