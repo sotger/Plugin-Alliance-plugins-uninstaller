@@ -32,7 +32,7 @@ rmfile () {
 }
 
 removeAll () {
-echo "${BLUE}delete ${1}${DEF}"
+echo "${BLUE}deleting... ${1}${DEF}"
 rmfile "$AU/${1}.component"
 rmfile "$AAX/${1}.aaxplugin"
 # rmfile "$VST/${1}.vst"
